@@ -1,0 +1,91 @@
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.starfield__nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: nebula-drift 40s ease-in-out infinite alternate;
+}
+
+.starfield__nebula--one {
+  top: -10%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(131, 123, 217, 0.35), transparent 70%);
+}
+
+.starfield__nebula--two {
+  bottom: -15%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(142, 199, 232, 0.22), transparent 70%);
+  animation-duration: 50s;
+  animation-delay: -8s;
+}
+
+@keyframes nebula-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(4%, 5%) scale(1.08);
+  }
+}
+
+.starfield__star {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--star, #f4f1ff);
+  box-shadow: 0 0 6px rgba(244, 241, 255, 0.6);
+  animation-name: star-twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes star-twinkle {
+  0% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+}
+
+.starfield__drifter {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(179, 156, 232, 0.9), rgba(179, 156, 232, 0));
+  filter: blur(0.5px);
+  animation-name: drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-6vw, -10vh);
+    opacity: 0;
+  }
+}

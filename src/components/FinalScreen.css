@@ -1,0 +1,25 @@
+.final {
+  gap: 1.1rem;
+  max-width: 26rem;
+}
+
+.final__line {
+  white-space: pre-line;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 3.4vw, 1.5rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.final__symbol {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.8rem;
+  color: var(--violet);
+  text-shadow: 0 0 24px rgba(179, 156, 232, 0.7);
+}
+
+.final__restart {
+  margin-top: 2.4rem;
+  font-size: 0.82rem;
+}

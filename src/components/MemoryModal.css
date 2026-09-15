@@ -1,0 +1,98 @@
+.memory-modal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(5, 6, 15, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.memory-modal {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  max-height: 88dvh;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 5vw, 2.3rem);
+  text-align: left;
+}
+
+.memory-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 195, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease-soft), color 0.3s var(--ease-soft);
+}
+
+.memory-modal__close:hover {
+  color: var(--text-primary);
+  border-color: rgba(220, 215, 255, 0.5);
+}
+
+.memory-modal__media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(160deg, rgba(131, 123, 217, 0.22), rgba(142, 199, 232, 0.1));
+}
+
+.memory-modal__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.memory-modal__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: rgba(244, 241, 255, 0.5);
+}
+
+.memory-modal__date {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.memory-modal__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
+}
+
+.memory-modal__description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.memory-modal__joke {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(200, 195, 255, 0.12);
+  font-style: italic;
+  color: var(--violet);
+  font-size: 0.92rem;
+}

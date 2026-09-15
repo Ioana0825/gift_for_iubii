@@ -1,0 +1,106 @@
+.video-experience {
+  background: var(--bg-void);
+  padding: 0;
+}
+
+.video-experience__transition-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  color: var(--text-secondary);
+}
+
+.video-experience__stage {
+  width: 100%;
+  max-width: 60rem;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.video-experience__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 90px -30px rgba(80, 70, 160, 0.55), 0 0 0 1px rgba(200, 195, 255, 0.1);
+}
+
+.video-experience__video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+
+.video-experience__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 6, 15, 0.35);
+  border: none;
+  cursor: pointer;
+}
+
+.video-experience__play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 1.5rem;
+  padding-left: 5px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 40px 8px rgba(157, 140, 224, 0.4);
+  transition: transform 0.4s var(--ease-soft), box-shadow 0.4s var(--ease-soft);
+}
+
+.video-experience__play:hover .video-experience__play-icon,
+.video-experience__play:focus-visible .video-experience__play-icon {
+  transform: scale(1.08);
+  box-shadow: 0 0 56px 12px rgba(157, 140, 224, 0.55);
+}
+
+.video-experience__fullscreen {
+  position: absolute;
+  bottom: 0.9rem;
+  right: 0.9rem;
+  font-size: 0.75rem;
+  padding: 0.5em 1.1em;
+  background: rgba(5, 6, 15, 0.4);
+}
+
+.video-experience__missing {
+  padding: clamp(2rem, 6vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: center;
+}
+
+.video-experience__missing-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.video-experience__missing-body {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.video-experience__missing-body code {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+  font-size: 0.85em;
+}

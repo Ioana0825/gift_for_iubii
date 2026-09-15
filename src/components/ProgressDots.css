@@ -1,0 +1,45 @@
+.progress-dots {
+  position: fixed;
+  top: clamp(1.1rem, 3vh, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+}
+
+.progress-dots__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(201, 198, 224, 0.25);
+  transition: all 0.6s var(--ease-soft);
+}
+
+.progress-dots__dot--done {
+  background: rgba(179, 156, 232, 0.65);
+}
+
+.progress-dots__dot--current {
+  width: 8px;
+  height: 8px;
+  background: var(--violet);
+  box-shadow: 0 0 10px 2px rgba(179, 156, 232, 0.75);
+}
+
+.progress-dots__label {
+  margin-left: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+  .progress-dots__label {
+    display: none;
+  }
+}
