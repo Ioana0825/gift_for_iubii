@@ -11,7 +11,7 @@ export function QuizStep({ onContinue }: { onContinue: () => void }) {
   const total = quiz.questions.length;
   const question = quiz.questions[index];
   const isLast = index === total - 1;
-  const isCorrect = selected !== null && selected === question.correctIndex;
+  const isCorrect = selected !== null && (question.allCorrect || selected === question.correctIndex);
 
   function handleSelect(optionIndex: number) {
     if (selected !== null) return;
@@ -76,7 +76,7 @@ export function QuizStep({ onContinue }: { onContinue: () => void }) {
           <div className="quiz__options" role="group" aria-label={question.question}>
             {question.options.map((option, optionIndex) => {
               const isSelected = selected === optionIndex;
-              const revealCorrect = selected !== null && optionIndex === question.correctIndex;
+              const revealCorrect = !question.allCorrect && selected !== null && optionIndex === question.correctIndex;
               return (
                 <button
                   key={option}

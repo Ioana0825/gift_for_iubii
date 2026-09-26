@@ -57,7 +57,7 @@ export function MemoryModal({ memory, onClose }: { memory: Memory; onClose: () =
         <h3 id={`${memory.id}-title`} className="memory-modal__title">
           {memory.title}
         </h3>
-        <p className="memory-modal__description">{memory.description}</p>
+        {memory.description && <p className="memory-modal__description">{memory.description}</p>}
         {memory.insideJoke && <p className="memory-modal__joke">{memory.insideJoke}</p>}
       </motion.div>
     </motion.div>

@@ -19,7 +19,16 @@
   text-shadow: 0 0 24px rgba(179, 156, 232, 0.7);
 }
 
+.final__signature {
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
 .final__restart {
-  margin-top: 2.4rem;
+  margin-top: 2rem;
   font-size: 0.82rem;
 }

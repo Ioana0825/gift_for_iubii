@@ -35,66 +35,64 @@ export type QuizQuestion = {
   options: string[];
   /** index into `options` */
   correctIndex: number;
+  /** when true, every option counts as correct (correctIndex is ignored for scoring) */
+  allCorrect?: boolean;
   correctReaction: string;
   wrongReaction: string;
 };
 
 export const quiz = {
-  heading: "Do you remember?",
-  subtitle: "Let's see how well you remember us 👀",
+  heading: "Do you remember? 💭",
+  subtitle: "Let's see how well you remember us 👀✨",
   passHeading: "You passed. Obviously. 🙄",
   passBody: "I like you too much to fail you. 🥰",
   continueLabel: "Continue",
   questions: [
     {
       id: "q1",
-      emoji: "🚩",
-      question: "Where did our story begin?",
-      options: ["A university hallway", "Online, late at night", "Through mutual friends", "By complete accident"],
-      correctIndex: 1,
-      correctReaction: "Exactly. I remember that night perfectly. ✨",
+      emoji: "👀",
+      question: "When was the first time we met / talked IRL?",
+      options: ["At the café at school ☕", "Your graduation ceremony 🎓", "In the school hallway 🏫", "In the car with Duda 🚗"],
+      correctIndex: 0,
+      correctReaction: "Yes! I remember that day so clearly. ☕✨",
       wrongReaction: "Close... but I remember it differently 👀",
     },
     {
       id: "q2",
       emoji: "👁️",
       question: "What was one of the first things you noticed about me?",
-      options: ["My laugh", "My terrible jokes", "How much I talk", "My taste in music"],
+      options: ["That I'm smart 🤓", "That I'm sportive 🏃‍♀️", "That I'm pretty 💅", "That I'm antisocial 🙃"],
       correctIndex: 0,
-      correctReaction: "Correct. You've mentioned it about a thousand times. 😌",
-      wrongReaction: "Unfortunately, your girlfriend remembers better. 😎",
+      allCorrect: true,
+      correctReaction: "Correct. Yep — all of it, actually. 😌✨",
+      wrongReaction: "There's no wrong answer here. 🙂",
     },
     {
       id: "q3",
-      emoji: "🤣",
-      question: "What was one of our funniest moments?",
-      options: [
-        "That one voice message you can never live down",
-        "The time we got hopelessly lost",
-        "Our very first video call disaster",
-        "Literally any random Tuesday",
-      ],
-      correctIndex: 0,
-      correctReaction: "I still think about it and laugh. Every time. 😂",
-      wrongReaction: "Nice try. I have receipts. 🎙️",
+      emoji: "🥹",
+      question: "What was one of our best moments?",
+      options: ["The night of 16th June 2023 🥹", "Date 3 when I laid on your chest 🥰", "Our first kiss 😘", "Our last date (ayooo 🤨)"],
+      correctIndex: 1,
+      correctReaction: "Melting. That's exactly the one. 🥰💕",
+      wrongReaction: "Sweet guess, but not quite. 😅",
     },
     {
       id: "q4",
-      emoji: "🌅",
-      question: "Which place reminds you most of us?",
-      options: ["Nowhere in particular", "A place we've never even been", "Our favorite spot", "My bedroom ceiling, from all our calls"],
-      correctIndex: 2,
-      correctReaction: "Yes. That place is ours now, forever. 🤍",
-      wrongReaction: "Hmm. Not quite what I had in mind. 🥲",
+      emoji: "📍",
+      question: "Which place reminds you of us?",
+      options: ["Freddy 🌳", "Volvo 🚗", "Monastery Dragomirna ⛪", "Cetate 🏰"],
+      correctIndex: 0,
+      correctReaction: "Freddy forever. 🌳💙",
+      wrongReaction: "Nice try, but that's not the spot. 🥲",
     },
     {
       id: "q5",
-      emoji: "💌",
-      question: "What do I say to you more than anything else?",
-      options: ["\"Good morning\"", "\"I miss you\"", "\"Did you eat?\"", "All of the above, constantly"],
-      correctIndex: 3,
-      correctReaction: "Correct. All of it. Every single day. 💙",
-      wrongReaction: "A for effort. Still wrong though. 🙃",
+      emoji: "💬",
+      question: "What do I say more than anything else?",
+      options: ["iubiiiii 🥹", "love youuuuu 🥰", "ayoooo 😏", "you naugthy naughty 😈"],
+      correctIndex: 1,
+      correctReaction: "Every single day. 🥰💌",
+      wrongReaction: "Nope. But I appreciate the confidence. 😏",
     },
   ] satisfies QuizQuestion[],
 };
@@ -106,7 +104,8 @@ export type Memory = {
   id: string;
   title: string;
   date: string;
-  description: string;
+  /** Optional — omit for no description text in the modal. */
+  description?: string;
   insideJoke?: string;
   /** Optional path under /public, e.g. "/assets/memory-1.jpg" */
   image?: string;
@@ -124,33 +123,27 @@ export const memoriesStep = {
   memories: [
     {
       id: "m1",
-      title: "A moment I wish I could relive.",
+      title: "One of my favorite memories with you.",
       date: "placeholder date",
-      description: "Add a short description of this memory here — where it happened, what it felt like.",
-      insideJoke: "Optional inside joke goes here.",
-      image: "/assets/memory-1.jpg",
+      image: "/assets/memory-1.webp",
     },
     {
       id: "m2",
-      title: "A moment that still makes me laugh.",
+      title: "A moment I wish I could relive.",
       date: "placeholder date",
-      description: "Add a short description of this memory here.",
-      image: "/assets/memory-2.jpg",
+      image: "/assets/memory-2.webp",
     },
     {
       id: "m3",
-      title: "One of my favorite memories with you.",
+      title: "Something only we would understand.",
       date: "placeholder date",
-      description: "Add a short description of this memory here.",
-      insideJoke: "Optional inside joke goes here.",
-      image: "/assets/memory-3.jpg",
+      image: "/assets/memory-3.webp",
     },
     {
       id: "m4",
-      title: "Something only we would understand.",
+      title: "One of our best photos.",
       date: "placeholder date",
-      description: "Add a short description of this memory here.",
-      image: "/assets/memory-4.jpg",
+      image: "/assets/memory-4.webp",
     },
   ] satisfies Memory[],
 };
@@ -165,7 +158,7 @@ export const notesStep = {
     "I love how you make ordinary days feel special.",
     "I love that I can be completely weird around you.",
     "I love that even after all this time, you still make me excited to see you.",
-    "I love that you're my favorite person to do absolutely nothing with.",
+    "I love how we can be productive and lazy together.",
     "I also love that you tolerate me.\nThat's a pretty significant achievement.",
   ],
   outroPrefix: "And that's only a tiny part of what I could tell you.",
@@ -196,5 +189,6 @@ export const videoStep = {
 export const finalStep = {
   lines: ["And this isn't the end.", "There are still so many memories left to make.", "Until then...\nI'll keep choosing you."],
   symbol: "❤",
+  signature: "my iubi",
   restartLabel: "Start again",
 };
